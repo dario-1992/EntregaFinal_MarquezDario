@@ -1,0 +1,46 @@
+
+
+{% extends "Registro/padre.html" %} {% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Instrumento</title>
+</head>
+
+<body>
+    {% block contenidoQueCambia %}
+    {% load static %}
+
+    <link href="{%static " registro/css/estilo.css"%}" rel="stylesheet"/>
+    <div class="listadetail">
+        <title>Detalle de {{ instdetail.nombre }}</title>
+        <h1>{{ instdetail.nombre }}</h1>
+        <ul class="lista">
+            <li><strong>Tipo:</strong> {{ instdetail.tipo }}</li>
+            <li><strong>Precio:</strong> ${{ instdetail.precio }}</li>
+            <li><strong>Modelos:</strong> {{ instdetail.modelo }}</li>
+            <li><strong>Fecha:</strong> {{ instdetail.fecha }}</li>
+        </ul>
+        {% if instdetail.imagen %}
+        <div>
+            <div class="imgdetail">
+                <img src="{{ instdetail.imagen.url }}" alt="{{ instdetail.nombre }}" style="max-width: 20%; height: auto;">
+            </div>
+        {% else %}
+             <p>No hay imagen disponible.</p>
+        </div>
+        {% endif %}
+        <a class="volver" href="{% url 'instrumento' %}">Volver a la lista de Instrumentos</a>
+
+
+        
+    </div>
+
+    {% endblock %}
+
+</body>
+
+</html>

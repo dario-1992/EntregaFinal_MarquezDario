@@ -1,0 +1,45 @@
+
+{% extends "Registro/padre.html" %} {% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>amps</title>
+</head>
+
+<body>
+    {% block contenidoQueCambia %}
+    {% load static %}
+
+    <link href="{%static " registro/css/estilo.css"%}" rel="stylesheet"/>
+    <div class="listadetail">
+        <title>Detalle de {{ ampsdetail.nombre }}</title>
+        <h1>{{ ampsdetail.nombre }}</h1>
+        <ul class="lista">
+            <li><strong>Tipo:</strong> {{ ampsdetail.tipo }}</li>
+            <li><strong>Precio:</strong> ${{ ampsdetail.precio }}</li>
+            <li><strong>Modelos:</strong> {{ ampsdetail.modelo }}</li>
+            <li><strong>Fecha:</strong> {{ ampsdetail.fecha }}</li>
+        </ul>
+        {% if ampsdetail.imagen %}
+        <div>
+            <div class="imgdetail">
+                <img src="{{ ampsdetail.imagen.url }}" alt="{{ ampsdetail.nombre }}" style="max-width: 20%; height: auto;">
+            </div>
+        {% else %}
+             <p>No hay imagen disponible.</p>
+        </div>
+        {% endif %}
+        <a class="volver" href="{% url 'amp' %}">Volver a la lista de Amplificadores</a>
+
+
+        
+    </div>
+
+    {% endblock %}
+
+</body>
+
+</html>

@@ -1,0 +1,66 @@
+{% extends "Registro/padre.html" %} {% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amp</title>
+</head>
+
+<body>
+
+    {% block contenidoQueCambia %}
+
+    <link href="{%static " registro/css/estilo.css"%}" rel="stylesheet" />
+
+    <body>
+        <div class="principal">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Nombre</th>
+                        <th>Imagen</th>
+                        <th>Acciones</th> 
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for amp in amps %}
+                    <tr>
+                        <td>{{ amp.nombre }}</td>
+                        <td>
+                            {% if amp.imagen %}
+                            <img src="{{ amp.imagen.url }}" alt="{{ amp.nombre }}" width="100px" />
+                            {% else %}
+                            <img src="{% static 'images/default.png' %}" alt="Imagen no disponible" width="100px" />
+                            {% endif %}
+                        </td>
+                        <td>
+                            <ul class="acciones">
+                                <li class="botones"><a href="{% url 'detalleamp' amp.pk %}">Ver más</a></li>
+                                {% if user.is_superuser %}
+                                <li class="botones"><a href="{% url 'editaramp' amp.pk %}">Editar</a></li>
+                                <li class="botones"><a href="{% url 'borraramp' amp.pk %}">Borrar</a></li>
+                                {% endif %}
+                            </ul>
+                        </td>
+                    </tr>
+                    {% empty %}
+                    <tr>
+                        <td colspan="3">No hay amplificadores disponibles.</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        
+            
+        </div>
+        <div class="agregar">
+            <a class="linkeo" href="{% url "Amp_formulario" %}">AGREGAR UN NUEVO MODELO</a>
+        </div>
+
+    {% endblock %}
+
+</body>
+
+</html>

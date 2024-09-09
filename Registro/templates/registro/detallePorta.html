@@ -1,0 +1,44 @@
+{% extends "Registro/padre.html" %} {% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pedal</title>
+</head>
+
+<body>
+    {% block contenidoQueCambia %}
+    {% load static %}
+
+    <link href="{%static " registro/css/estilo.css"%}" rel="stylesheet"/>
+    <div class="listadetail">
+        <title>Detalle de {{ portadetail.nombre }}</title>
+        <h1>{{ portadetail.nombre }}</h1>
+        <ul class="lista">
+            <li><strong>Tipo:</strong> {{ portadetail.tipo }}</li>
+            <li><strong>Precio:</strong> ${{ portadetail.precio }}</li>
+            <li><strong>Modelos:</strong> {{ portadetail.modelo }}</li>
+            <li><strong>Fecha:</strong> {{ portadetail.fecha }}</li>
+        </ul>
+        {% if portadetail.imagen %}
+        <div>
+            <div class="imgdetail">
+                <img src="{{ portadetail.imagen.url }}" alt="{{ portadetail.nombre }}" style="max-width: 20%; height: auto;">
+            </div>
+        {% else %}
+             <p>No hay imagen disponible.</p>
+        </div>
+        {% endif %}
+        <a class="volver" href="{% url 'porta' %}">Volver a la lista de Portapúas</a>
+
+
+        
+    </div>
+
+    {% endblock %}
+
+</body>
+
+</html>

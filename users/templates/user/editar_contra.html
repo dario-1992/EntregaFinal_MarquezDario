@@ -1,0 +1,20 @@
+{% extends 'Registro/padre.html' %}
+
+{% load static %}
+
+{% block title %} Editar PASS {% endblock title %}
+
+{% block contenidoQueCambia %}
+<div class="d-flex justify-content-center">
+    <form action="{% url "CambiarPass" %}" method="POST">
+        {% csrf_token %}
+
+        <table>
+            {{ form.as_table }}
+        </table>
+
+        <input class="btn btn-primary"  type="submit" value="Cambiar pass">
+
+    </form>
+</div>
+{% endblock %}

@@ -1,0 +1,66 @@
+{% extends "Registro/padre.html" %} {% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amp</title>
+</head>
+
+<body>
+
+    {% block contenidoQueCambia %}
+
+    <link href="{%static " registro/css/estilo.css"%}" rel="stylesheet" />
+
+    <body>
+        <div class="principal">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Nombre</th>
+                        <th>Imagen</th>
+                        <th>Acciones</th> 
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for inst in instrumentos %}
+                    <tr>
+                        <td>{{ inst.nombre }}</td>
+                        <td>
+                            {% if inst.imagen %}
+                            <img src="{{ inst.imagen.url }}" alt="{{ inst.nombre }}" width="100px" />
+                            {% else %}
+                            <img src="{% static 'images/default.png' %}" alt="Imagen no disponible" width="100px" />
+                            {% endif %}
+                        </td>
+                        <td>
+                            <ul class="acciones">
+                                <li class="botones"><a href="{% url 'detalleinstrumento' inst.pk %}">Ver más</a></li>
+                                {% if user.is_superuser %}
+                                <li class="botones"><a href="{% url 'editarinstrumento' inst.pk %}">Editar</a></li>
+                                <li class="botones"><a href="{% url 'borrarinstrumento' inst.pk %}">Borrar</a></li>
+                                {% endif %}
+                            </ul>
+                        </td>
+                    </tr>
+                    {% empty %}
+                    <tr>
+                        <td colspan="3">No hay instpúas disponibles.</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        
+            
+        </div>
+        <div class="agregar">
+            <a class="linkeo" href="{% url "Inst_formulario" %}">AGREGAR UN NUEVO MODELO</a>
+        </div>
+
+    {% endblock %}
+
+</body>
+
+</html>

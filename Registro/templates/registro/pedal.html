@@ -1,0 +1,68 @@
+{% extends "Registro/padre.html" %} {% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amp</title>
+</head>
+
+<body>
+
+    {% block contenidoQueCambia %}
+
+    <link href="{%static " registro/css/estilo.css"%}" rel="stylesheet" />
+
+    <body>
+
+    
+        <div class="principal">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Nombre</th>
+                        <th>Imagen</th>
+                        <th>Acciones</th> 
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for pedal in pedals %}
+                    <tr>
+                        <td>{{ pedal.nombre }}</td>
+                        <td>
+                            {% if pedal.imagen %}
+                            <img src="{{ pedal.imagen.url }}" alt="{{ pedal.nombre }}" width="100px" />
+                            {% else %}
+                            <img src="{% static 'images/default.png' %}" alt="Imagen no disponible" width="100px" />
+                            {% endif %}
+                        </td>
+                        <td>
+                            <ul class="acciones">
+                                <li class="botones"><a href="{% url 'detallepedal' pedal.pk %}">Ver más</a></li>
+                                {% if user.is_superuser %}
+                                <li class="botones"><a href="{% url 'editarpedal' pedal.pk %}">Editar</a></li>
+                                <li class="botones"><a href="{% url 'borrarpedal' pedal.pk %}">Borrar</a></li>
+                                {% endif %}
+                            </ul>
+                        </td>
+                    </tr>
+                    {% empty %}
+                    <tr>
+                        <td colspan="3">No hay pedales disponibles.</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        
+            
+        </div>
+        <div class="agregar">
+            <a class="linkeo" href="{% url "Pedal_formulario" %}">AGREGAR UN NUEVO MODELO</a>
+        </div>
+
+    {% endblock %}
+
+</body>
+
+</html>

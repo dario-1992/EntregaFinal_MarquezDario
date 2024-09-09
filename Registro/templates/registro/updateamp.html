@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inicio</title>
+
+</head>
+
+<body>
+    {% extends "Registro/padre.html" %} {% load static %}
+    {% block contenidoQueCambia %}
+    
+   
+    <form class="formulario" action="{% url 'editaramp' pk=object.pk %}" method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <table class="tabla">
+            {{form.as_table}}
+        </table>
+        <input type="submit" value="Confirmar cambios">
+    </form>
+    <a class="volver" href="{% url 'amp' %}">Volver a la lista de Amplificadores</a>
+    {% endblock %} 
+</body>
+
+</html>

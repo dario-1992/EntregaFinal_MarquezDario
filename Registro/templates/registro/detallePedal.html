@@ -1,0 +1,44 @@
+{% extends "Registro/padre.html" %} {% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pedal</title>
+</head>
+
+<body>
+    {% block contenidoQueCambia %}
+    {% load static %}
+
+    <link href="{%static " registro/css/estilo.css"%}" rel="stylesheet"/>
+    <div class="listadetail">
+        <title>Detalle de {{ pedaldetail.nombre }}</title>
+        <h1>{{ pedaldetail.nombre }}</h1>
+        <ul class="lista">
+            <li><strong>Tipo:</strong> {{ pedaldetail.tipo }}</li>
+            <li><strong>Precio:</strong> ${{ pedaldetail.precio }}</li>
+            <li><strong>Modelos:</strong> {{ pedaldetail.modelo }}</li>
+            <li><strong>Fecha:</strong> {{ pedaldetail.fecha }}</li>
+        </ul>
+        {% if pedaldetail.imagen %}
+        <div>
+            <div class="imgdetail">
+                <img src="{{ pedaldetail.imagen.url }}" alt="{{ pedaldetail.nombre }}" style="max-width: 20%; height: auto;">
+            </div>
+        {% else %}
+             <p>No hay imagen disponible.</p>
+        </div>
+        {% endif %}
+        <a class="volver" href="{% url 'pedal' %}">Volver a la lista de Pedales</a>
+
+
+        
+    </div>
+
+    {% endblock %}
+
+</body>
+
+</html>

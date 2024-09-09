@@ -1,0 +1,200 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+
+
+.botones {
+  text-decoration: none;
+  background-color: yellow;
+  list-style: none;
+  text-decoration: none;
+  padding: 1rem;
+  border-radius: 1rem;
+
+}
+
+.fondo {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  padding: 0%;
+
+  .img {
+    width: 100%;
+  }
+
+}
+
+.titulo {
+  position: absolute;
+  top: 12rem;
+  z-index: 1;
+  color: white;
+}
+
+.listas {
+  color: blue;
+}
+
+.avatar-img {
+  height: 100px;
+  width: 100px;
+  border-radius: 50%;
+}
+
+.dropdown {
+  display: flex;
+  align-items: center;
+}
+
+.ms-3 {
+  margin-left: 20rem;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th,
+td {
+  padding: 8px;
+  text-align: left;
+  border: 0.5px solid #ddd;
+}
+
+.acciones {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.acciones li {
+  display: inline-block;
+  margin-right: 10px;
+}
+
+.botones a {
+  text-decoration: none;
+  color: black;
+}
+
+.principal {
+  display: flex;
+  justify-content: center;
+  margin: 2rem;
+}
+
+.agregar {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 3rem;
+  .linkeo {
+    text-decoration: none;
+    color: white;
+    background-color: black;
+    font-size: X-large;
+    padding: 1rem;
+    margin: 1rem;
+    border-radius: 0.5rem;
+
+  }
+
+}
+.listadetail {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction:column;
+  flex-wrap: wrap;}
+  .lista{
+  text-decoration: none;
+  list-style: none;}
+
+
+.imgdetail {
+  display: flex;
+  justify-content: center;
+  font-size: xx-large;
+}
+
+.volver {
+  text-decoration: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 1rem;
+  padding: 2rem;
+  background-color: rgb(246, 154, 16);
+  color: beige;
+ }
+
+ .formulario {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  flex-wrap: wrap;
+  .tabla {width: 20rem;
+    margin: 2rem;
+
+  }
+ }
+
+ .formulariodelete{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  flex-wrap: wrap;
+  background-color: black;
+  color: red;
+  padding: 2rem;
+  margin-top: 2rem;
+  font-size: large;
+  .tabla {width: 20rem;
+    margin: 2rem;
+
+  }}
+
+  .boton-borrar {
+    background-color: red; 
+    color: white; 
+    border: none; 
+    padding: 10px 20px; 
+    font-size: 16px; 
+    cursor: pointer; 
+    border-radius: 5px; 
+    text-align: center; }
+
+.sobremi {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #D3D3D3;
+  margin: 2rem;
+}
+.sobremimg {
+  display: flex;
+  width: 80%;
+  margin: 4rem;
+  
+   img{
+    width: 100%;
+    border-radius: 200%;
+  }
+}
+
+.sobremitxt {
+  display: flex;
+  justify-content: space-around;
+  align-items: self-start;
+  flex-direction: column;
+  margin: 4rem;
+  p{
+    font-size: large;
+  }
+}

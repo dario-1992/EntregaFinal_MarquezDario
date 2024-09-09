@@ -1,0 +1,37 @@
+{% extends "Registro/padre.html" %} {% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sobre mi</title>
+</head>
+
+<body>
+
+    {% block contenidoQueCambia %}
+
+    <link href="{%static " registro/css/estilo.css"%}" rel="stylesheet"/>
+
+    <section class="sobremi">
+        <div class="sobremimg">
+            <img src="{% static 'registro/assets/MATEZONE 24-01.jpg' %}" alt="Nosotros">
+        </div>
+        <div class="sobremitxt">
+            <h1>Sobre mi</h1>
+            <p>Hola, soy Dario Marquez. Me dedico a la impresión 3D de mates con forma de pedales, amplificadores e instrumentos. Desde el año 2020, comencé haciendo un mate para mí y, eventualmente, terminamos vendiendo a casi todo el país bajo el nombre MateZone (en honor al MetalZone).
+
+                Recientemente, empecé a estudiar programación con el objetivo de cambiar mi trabajo actual en relación de dependencia. Estoy entusiasmado por las nuevas oportunidades que esta área ofrece y cómo puede complementar y expandir mi proyecto de impresión 3D.
+                
+                 </p>
+        </div>
+    </section>
+
+
+    
+    {% endblock %}
+
+</body>
+
+</html>
